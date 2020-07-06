@@ -10,17 +10,21 @@ lazy val root = (project in file("."))
     assembleArtifact in assemblyPackageDependency := false,
   )
   .settings(commonSettings)
-  .aggregate(`hello-world`)
+  .aggregate(`hello-world`, `build-a-house`)
 
 lazy val `hello-world` = (project in file("modules/hello-world"))
-  .settings(commonSettings)
-  .settings(
-    libraryDependencies ++= Seq (
-      "org.bukkit" % "craftbukkit" % "1.16.1-R0.1-SNAPSHOT" % Provided
-    ),
-    assemblyOutputPath in assembly := pluginsDir / "hello-world-plugin.jar"
-  )
+  .settings(commonSettings).settings(commonDependencies)
+  .settings(assemblyOutputPath in assembly := pluginsDir / "hello-world-plugin.jar")
 
+lazy val `build-a-house` = (project in file("modules/build-a-house"))
+  .settings(commonSettings).settings(commonDependencies)
+  .settings(assemblyOutputPath in assembly := pluginsDir / "build-a-house-plugin.jar")
+
+lazy val commonDependencies = Seq(
+  libraryDependencies ++= Seq (
+    "org.bukkit" % "craftbukkit" % "1.16.1-R0.1-SNAPSHOT" % Provided
+  )
+)
 
 lazy val commonSettings = Seq(
   scalaVersion := "2.13.3",

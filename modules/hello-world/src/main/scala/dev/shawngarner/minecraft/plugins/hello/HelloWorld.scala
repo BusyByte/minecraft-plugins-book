@@ -12,8 +12,8 @@ final class HelloWorld extends JavaPlugin {
 
   override def onEnable(): Unit = log.info("[HelloWorld] Starting up.")
 
-  override def onCommand(sender: CommandSender, command: Command, label: String, args: Array[String]): Boolean = {
-    if("hello".equalsIgnoreCase(label)) {
+  override def onCommand(sender: CommandSender, command: Command, commandLabel: String, args: Array[String]): Boolean = {
+    if("hello".equalsIgnoreCase(commandLabel)) {
       val msg = "[Server] That'sss a very niccce EVERYTHING you have there..."
       getServer.broadcastMessage(msg)
       true

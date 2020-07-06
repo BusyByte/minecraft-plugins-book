@@ -1,0 +1,12 @@
+name: BuildAHouse
+
+author: Shawn Garner
+website: https://www.shawngarner.dev
+
+main: dev.shawngarner.minecraft.plugins.buildahouse.BuildAHouse
+
+commands:
+  buildahouse:
+    description: Build a house
+
+version: 0.1
