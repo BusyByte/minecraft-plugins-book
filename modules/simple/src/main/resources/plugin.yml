@@ -1,0 +1,11 @@
+name: Simple
+
+author: Shawn Garner
+website: https://www.shawngarner.dev
+main: dev.shawngarner.minecraft.plugins.simple.Simple
+
+commands:
+  simple:
+    description: Simple first plugin
+
+version: 0.1

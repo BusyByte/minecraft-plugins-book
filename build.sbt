@@ -10,7 +10,10 @@ lazy val root = (project in file("."))
     assembleArtifact in assemblyPackageDependency := false,
   )
   .settings(commonSettings)
-  .aggregate(`hello-world`, `build-a-house`)
+  .aggregate(
+    `hello-world`,
+    `build-a-house`,
+    `simple`)
 
 lazy val `hello-world` = (project in file("modules/hello-world"))
   .settings(commonSettings).settings(commonDependencies)
@@ -19,6 +22,10 @@ lazy val `hello-world` = (project in file("modules/hello-world"))
 lazy val `build-a-house` = (project in file("modules/build-a-house"))
   .settings(commonSettings).settings(commonDependencies)
   .settings(assemblyOutputPath in assembly := pluginsDir / "build-a-house-plugin.jar")
+
+lazy val `simple` = (project in file("modules/simple"))
+  .settings(commonSettings).settings(commonDependencies)
+  .settings(assemblyOutputPath in assembly := pluginsDir / "simple-plugin.jar")
 
 lazy val commonDependencies = Seq(
   libraryDependencies ++= Seq (
